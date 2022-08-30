@@ -1,42 +1,58 @@
 import { useState } from "react";
 
-const orders = [100, 200, 300];
+// const gifts = ["CPU i9", "RAM 32GB RGB", "RGB Keyboard"];
+const courses = [
+  { id: 1, name: "HTML, CSS" },
+  { id: 2, name: "Javascript" },
+  { id: 3, name: "ReactJS" },
+];
 
 function App() {
-  // const [counter, setCounter] = useState(() => {
-  //   const total = orders.reduce((total, cur) => total + cur);
-  //   return total;
-  // });
-  // // tuân theo quy hướng camplecase để code dể đọc(setCounter)
-  // const handleIncrease = () => {
-  //   setCounter((prevState) => prevState + 1);
+  const [checked, setChecked] = useState();
+
+  // const [gift, setGift] = useState();
+
+  // const randomGift = () => {
+  //   const index = Math.floor(Math.random() * gifts.length);
+
+  //   setGift(gifts[index]);
   // };
 
-  const [info, setInfo] = useState({
-    name: "Nguyen Van A",
-    age: 18,
-    address: "Ha Noi, VN",
-  });
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
 
-  const handleUpdate = () => {
-    // setInfo((prev) => {
-    //   //logic...
-
-    //   return {
-    //     ...info,
-    //     bio: "Yêu màu hồng ^^",
-    //   };
+  const handleSubmit = () => {
+    // CALL API
+    // console.log({
+    //   name,
+    //   email,
     // });
-    setInfo({
-      ...info,
-      bio: "Yêu màu hồng ^^",
-    });
+    console.log({ id: checked });
   };
 
   return (
-    <div className="App" style={{ padding: 20 }}>
-      <h1>{JSON.stringify(info)}</h1>
-      <button onClick={handleUpdate}>Increase</button>
+    <div className="App" style={{ padding: 32 }}>
+      {courses.map((course) => (
+        <div key={course.id}>
+          {/* <input
+            type="radio"
+            checked={checked === course.id}
+            onChange={() => setChecked(course.id)}
+          /> */}
+          <input
+            type="checkbox"
+            checked={checked === course.id}
+            onChange={() => setChecked(course.id)}
+          />
+          {course.name}
+        </div>
+      ))}
+      <button onClick={handleSubmit}>Register</button>
+      {/* <input value={name} onChange={(e) => setName(e.target.value)} />
+      <input value={email} onChange={(e) => setEmail(e.target.value)} /> */}
+      {/* <button onClick={() => setName("Nguyen van B")}></button> */}
+      {/* <h1>{ gift || 'Chưa có phần thưởng'}</h1> */}
+      {/* <button onclick={randomGift}></button> */}
     </div>
   );
 }
