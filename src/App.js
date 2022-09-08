@@ -7,6 +7,7 @@
 
 import { useState } from "react";
 import Content from "./Content";
+import UseEffect from "./UseEffect";
 
 function App() {
   // const [checked, setChecked] = useState([]);
@@ -42,7 +43,7 @@ function App() {
   //   console.log({ ids: checked });
   // };
 
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
   return (
     //   {courses.map((course) => (
@@ -66,9 +67,12 @@ function App() {
     /* <button onClick={() => setName("Nguyen van B")}></button> */
     /* <h1>{ gift || 'Chưa có phần thưởng'}</h1> */
     /* <button onclick={randomGift}></button> */
+    // <div style={{ padding: 32 }}>
+    //   <button onClick={() => setShow(!show)}>Toggle</button>
+    //   {show && <Content />}
+    // </div>
     <div style={{ padding: 32 }}>
-      <button onClick={() => setShow(!show)}>Toggle</button>
-      {show && <Content />}
+      <UseEffect />
     </div>
   );
 }
