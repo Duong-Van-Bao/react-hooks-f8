@@ -5,6 +5,9 @@
 //   { id: 3, name: "ReactJS" },
 // ];
 
+import { useState } from "react";
+import Content from "./Content";
+
 function App() {
   // const [checked, setChecked] = useState([]);
 
@@ -39,6 +42,8 @@ function App() {
   //   console.log({ ids: checked });
   // };
 
+  const [show, setShow] = useState(false);
+
   return (
     //   {courses.map((course) => (
     //     <div key={course.id}>
@@ -61,7 +66,10 @@ function App() {
     /* <button onClick={() => setName("Nguyen van B")}></button> */
     /* <h1>{ gift || 'Chưa có phần thưởng'}</h1> */
     /* <button onclick={randomGift}></button> */
-    <div style={{ padding: 32 }}></div>
+    <div style={{ padding: 32 }}>
+      <button onClick={() => setShow(!show)}>Toggle</button>
+      {show && <Content />}
+    </div>
   );
 }
 
